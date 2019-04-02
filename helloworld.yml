@@ -29,7 +29,7 @@ spec:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: webapp_nginx
+  name: webapp-nginx
 spec:
   replicas: 1
   strategy:
@@ -40,11 +40,11 @@ spec:
   template:
     metadata:
       labels:
-        app: webapp_nginx
+        app: webapp-nginx
     spec:
       containers:
-      - name: webapp_nginx
-        image: aqcitdevkubereg.azurecr.io/webapp_nginx:v1
+      - name: webapp-nginx
+        image: aqcitdevkubereg.azurecr.io/webapp-nginx:v1
         ports:
         - containerPort: 80
         resources:
@@ -56,10 +56,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp_nginx
+  name: webapp-nginx
 spec:
   type: LoadBalancer
   ports:
   - port: 80
   selector:
-    app: webapp_nginx
+    app: webapp-nginx
