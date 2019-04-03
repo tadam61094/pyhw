@@ -11,10 +11,10 @@ spec:
     spec:
       containers:
       - name: webapp-nginx
-        image: aqcitdevkubereg.azurecr.io/webapp-nginx:v1
+        image: nginx:latest
         ports:
         - containerPort: 6379
-          name: redis
+          name: nginx
 ---
 apiVersion: v1
 kind: Service
@@ -52,9 +52,6 @@ spec:
             cpu: 250m
           limits:
             cpu: 500m
-        env:
-        - name: REDIS
-          value: "webapp-nginx"
 ---
 apiVersion: v1
 kind: Service
